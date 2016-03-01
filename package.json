@@ -1,0 +1,22 @@
+{
+  "name": "byrs-news-git",
+  "version": "0.0.0",
+  "description": "for better bbs.byr.cn",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "scripts": {
+    "cl": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "ncl": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "keywords": [],
+  "author": "BuptStEve",
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
