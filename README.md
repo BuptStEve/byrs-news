@@ -37,7 +37,7 @@
 
 ## 三、Q&A
 ### 1. 是否开源？
-开源，但是需要等一哈...
+已开源：[github地址](https://github.com/BuptStEve/byrs-news)
 
 ### 2. 内容来源？
 另一个基于 nodeJs(superagent/cheerio/async/mongoose) 爬虫的项目，爬取并整理来自 [北邮人论坛移动版](http://m.byr.cn) 的内容。~~代码写得太丑...需要大改先~~
@@ -48,7 +48,10 @@
 * 数据库：MongoDB（一个 nosql 数据库）
 * 更多技术细节请提问，或者关注我的~~有时间才会写的~~[Blog](http://buptsteve.github.io/blog/) （ps 搭建服务器那篇需要大改...）
 
-### 4. ...?
+### 4. 除了电脑其他端能否访问?
+只要装了浏览器，都可以...
+
+### 5. ...?
 持续更新ing...
 
 ## 四、one more thing...

@@ -50,15 +50,16 @@ Template.articleItem.helpers({
 Template.articleItem.events({
   "click .bn-body": function(event) {
     if ($(event.target).hasClass('bn-body')) {
-      $(event.target).addClass('bn-hidden');
-      $(event.target).parent().find('.bn-summary').removeClass('bn-hidden');
+      $(event.target).fadeOut(300, function() {});
+      $(event.target).parent().find('.bn-summary').fadeIn(500, function() {});
+      $("#sideNav li.active a").trigger('click');
     }
   },
 
   "click .bn-summary": function(event) {
     if ($(event.target).hasClass('bn-summary')) {
-      $(event.target).addClass('bn-hidden');
-      $(event.target).parent().find('.bn-body').removeClass('bn-hidden');
+      $(event.target).fadeOut(300, function() {});
+      $(event.target).parent().find('.bn-body').fadeIn(500, function() {});
     }
   }
 });
