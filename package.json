@@ -1,6 +1,6 @@
 {
   "name": "byrs-news-git",
-  "version": "0.0.0",
+  "version": "0.3.1",
   "description": "for better bbs.byr.cn",
   "main": "index.js",
   "dependencies": {},

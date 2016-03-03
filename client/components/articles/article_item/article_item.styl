@@ -1,0 +1,63 @@
+.article
+  position relative
+  opacity 1
+
+  &:before,
+  &:after
+    display table
+    content ""
+  &:after
+    clear both
+
+  .article-content
+    float left
+    position relative
+    width 100%
+    h3
+      // 标题栏
+      margin 0
+      font-size 18px
+      line-height 1.4
+      a
+        // 标题和前往原帖
+        display inline-block
+        margin-right 5px
+      span
+        // domain：待修改
+        display inline-block
+        font-size 14px
+        font-weight normal
+        color #aaa
+      .bn-origin
+        // 前往原帖
+        display block
+        float right
+        margin-top 7px
+    h5
+      // 副标题栏：作者、时间...
+      font-weight 400
+    p
+      // body 或 summary
+      margin 0
+    .supp
+      // 原贴中的「好评」
+      bottom 0
+    .bn-summary,
+    .bn-body
+      font-size 16px
+      line-height 30px
+    .bn-hidden
+      display none
+    .bn-inline-img
+      // summary 中的预览图片
+      float left
+      max-height 200px
+      max-width 200px
+      border-radius 4px
+      margin 1px 10px 5px 0
+    .resizeable
+      -webkit-box-shadow 3px 3px 6px #333
+      -moz-box-shadow 3px 3px 6px #333
+      box-shadow 3px 3px 6px #333
+      max-width 100%
+

@@ -1,0 +1,33 @@
+<template name="articlesList">
+  <div class="articles">
+    <div class="col-md-3 scrollspy">
+      <ul id="sideNav" class="nav hidden-xs hidden-sm" data-spy="affix">
+        {{#if ttReady}}
+          {{#each articles}}
+            <li>
+              <a href="#{{@index}}">
+                #{{@index}}
+                {{title}}
+                <!-- <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> -->
+              </a>
+            </li>
+          {{/each}}
+        {{else}}
+          {{> spinner}}
+        {{/if}}
+      </ul>
+    </div>
+
+    <div class="wrapper col-md-9">
+      {{#if ttReady}}
+        {{#each articles}}
+          <section id="{{@index}}">
+            {{> articleItem}}
+          </section>
+        {{/each}}
+      {{else}}
+        {{> spinner}}
+      {{/if}}
+    </div>
+  </div>
+</template>

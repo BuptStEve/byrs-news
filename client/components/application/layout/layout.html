@@ -1,0 +1,10 @@
+<template name="layout">
+  {{> header}}
+
+  <!-- <div id="main" data-spy="scroll" data-target=".scrollspy"> -->
+  <div id="main" class="container">
+    {{> Template.dynamic template=content}}
+  </div>
+
+  {{> footer}}
+</template>

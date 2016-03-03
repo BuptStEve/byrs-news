@@ -1,0 +1,34 @@
+<template name="header">
+  <nav class="navbar navbar-default {{#if activeFixed}}navbar-fixed-top{{else}}navbar-static-top{{/if}}" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{pathFor '/'}}">Byrs News</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+            <li class="{{#if activeTopTen}}active{{/if}}">
+              <a href="/">十大</a>
+            </li>
+          {{#if activeFixed}}
+            <li class="{{#if activeOrderUp}}active{{/if}}">
+              <a href="{{pathFor '/articles/:_id/up' _id=articleId}}">升序</a>
+            </li>
+            <li class="{{#if activeOrderUp}}{{else}}active{{/if}}">
+              <a href="{{pathFor '/articles/:_id/down' _id=articleId}}">降序</a>
+            </li>
+          {{/if}}
+        </ul>
+        <!-- <form class="navbar-form navbar-right" role="search">
+            <input type="text" class="form-control" id="searchInput" placeholder="搜索" value="{{searchString}}">
+        </form> -->
+      </div>
+    </div>
+  </nav>
+</template>

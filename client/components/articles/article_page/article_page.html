@@ -1,0 +1,35 @@
+<template name="articlePage">
+  <div class="articlePage">
+    {{#if isReady 'singleArticle'}}
+      <!-- 路由级订阅: 主贴 -->
+      {{#with getArticle}}
+        {{> articleItem}}
+      {{/with}}
+    {{else}}
+      {{> spinner}}
+    {{/if}}
+
+    <ul class="comments">
+      {{#each getComments}}
+        {{> commentItem}}
+      {{/each}}
+    </ul>
+
+    {{#if moreResults}}
+      <a class="load-more comments-more">加载更多</a>
+    {{/if}}
+
+    {{#unless Template.subscriptionsReady}}
+      <!-- 模板级订阅: 评论 -->
+      <div style="position: fixed; top: 50%; left: 50%;">
+        {{> spinner}}
+      </div>
+    {{/unless}}
+
+    <div class="progress container navbar-fixed-bottom">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{progressPercent}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{progressPercent}}%;">
+        {{progressPercent}}%
+      </div>
+    </div>
+  </div>
+</template>

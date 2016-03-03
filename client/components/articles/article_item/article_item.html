@@ -1,0 +1,34 @@
+<template name="articleItem">
+  <div class="article">
+    <div class="article-content">
+      <h3>
+        <a href="{{pathFor '/articles/:_id/up' _id=this._id._str}}">
+          {{title}}
+        </a>
+        <span>{{domain}}</span>
+        <a href="{{fullIpv4Url}}" class="bn-origin btn btn-default" target="_blank">前往原帖</a>
+      </h3>
+
+      <h5>
+        作者: {{author}} | 发帖时间: {{submitted}} |
+        {{#if showNewCommentsCount}}
+          {{newCommentsCount}}条新评论
+        {{else}}
+          {{#if getCommentsCount}}
+            {{getCommentsCount}}条评论
+          {{else}}
+            {{commentsCount}}条评论
+          {{/if}}
+        {{/if}}
+      </h5>
+      <p class="bn-body {{#if activeBody}}{{else}}bn-hidden{{/if}}">
+        <!-- innerHTML -->
+        {{{body}}}
+      </p>
+      <p class="bn-summary {{#if activeBody}}bn-hidden{{/if}} clearfix">
+        <!-- summary -->
+        {{{summary}}}
+      </p>
+    </div>
+  </div>
+</template>
