@@ -40,7 +40,13 @@
 已开源：[github地址](https://github.com/BuptStEve/byrs-news)
 
 ### 2. 内容来源？
-另一个基于 nodeJs(superagent/cheerio/async/mongoose) 爬虫的项目，爬取并整理来自 [北邮人论坛移动版](http://m.byr.cn) 的内容。~~代码写得太丑...需要大改先~~
+另一个基于 nodeJs(superagent/cheerio/async/mongoose) 爬虫的项目 [byr-crawler](https://github.com/BuptStEve/byr-crawler)，爬取并整理来自 [北邮人论坛移动版](http://m.byr.cn) 的内容。目前仅开源了爬取十大部分的内容,爬取全部文章的部分还在测试开发中,主要原因如下:
+
+* 错误处理：爬取失败的文章的再爬取。
+* 代码、注释的完善。
+* 一次任务中海量数据的处理（MongoDB的cursor限制了10分钟，超过时间就会断开）, 目前采用stream + batchSize的方式。
+* 学习使用 DBRefs：目前采用朴素的保存 _id 的方法。（这样就可以方便地展示分区列表啦）
+* 更复杂的定时任务。
 
 ### 3. 项目架构？
 * 语言：JavaScript
