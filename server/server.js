@@ -2,7 +2,7 @@
 * @Author: BuptStEve
 * @Date:   2016-01-24 21:53:13
 * @Last Modified by:   BuptStEve
-* @Last Modified time: 2016-02-26 12:37:03
+* @Last Modified time: 2016-03-19 16:52:59
 */
 
 // 十大
@@ -39,4 +39,9 @@ Meteor.publish('comments', function(articleId, options) {
   // Meteor._sleepForMs(5000);
 
   return Comments.find({article: articleId}, options);
+});
+
+Meteor.publish('searchComments', function (articleId, queryString, queryLimit) {
+  // Meteor._sleepForMs(3000);
+  return commentsQuery(Comments, queryString, queryLimit, articleId);
 });

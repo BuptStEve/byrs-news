@@ -1,16 +1,16 @@
 /*
-* @Author: BuptStEve
-* @Date:   2016-01-28 18:18:44
-* @Last Modified by:   BuptStEve
-* @Last Modified time: 2016-02-26 11:54:57
-*/
+ * @Author: BuptStEve
+ * @Date:   2016-01-28 18:18:44
+ * @Last Modified by:   BuptStEve
+ * @Last Modified time: 2016-03-19 18:59:05
+ */
 
-Session.setDefault('commentsLimit', COMMENTS_INCREMENT);
+Session.setDefault('commentsLimit', INCREMENT);
 
 Template.articlePage.onCreated(function() {
   var self = this;
 
-  Session.set('commentsLimit', COMMENTS_INCREMENT);
+  Session.set('commentsLimit', INCREMENT);
 
   self.autorun(function() {
     var articleId    = FlowRouter.getParam('_id'),
@@ -29,27 +29,10 @@ Template.articlePage.onCreated(function() {
       FlowRouter.go('/404');
     }
 
-    function showMoreComments() {
-      var threshold,
-          target = $(".load-more.comments-more");
-      if (!target.length) { return; }
-
-      threshold = $(window).scrollTop() + $(window).height() - target.height();
-
-      if (target.offset().top < threshold) {
-        if (!target.data("visible")) {
-          target.data("visible", true);
-          Session.set("commentsLimit", Session.get("commentsLimit") + COMMENTS_INCREMENT);
-        }
-      } else {
-        if (target.data("visible")) {
-          target.data("visible", false);
-        }
-      }
-    }
-
     // 每次滚动时检查
-    $(window).scroll(showMoreComments);
+    $(window).scroll(function() {
+      showMoreContent('comments');
+    });
   });
 });
 

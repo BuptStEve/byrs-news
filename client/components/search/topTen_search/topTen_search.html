@@ -1,0 +1,44 @@
+<template name="topTenSearch">
+  <div class="search-container">
+    <div class="page-header">
+      <h1>十大搜索 <small>默认匹配标题、作者、正文 <small>支持正则表达式(直接输入内容两端无需加 /)</small></small></h1>
+
+      <div class="well well-sm">
+        * 可选项:「 url | author | commentsCount | pageNum | newCommentsCount 」
+        <br>
+        * 可用操作符:「 &gt; | = | &lt; | : 」
+        <br>
+        * 举一些栗子:
+        <br>
+        <small>&nbsp;&nbsp;1. 怒求一发offer -> 正则匹配含有“怒求一发offer”内容的帖子</small>
+        <br>
+        <small>&nbsp;&nbsp;2. ^大交换中心$ -> 严格正则匹配，以我大交换的“大”开头和以“心”结尾的帖子</small>
+        <br>
+        <small>&nbsp;&nbsp;ps 增加空格后使用可选项与操作符可以缩小搜索范围</small>
+        <br>
+        <small>&nbsp;&nbsp;3. steve pageNum>10 -> 匹配 steve 并且帖子页数大于10页的帖子</small>
+        <br>
+        <small>&nbsp;&nbsp;4. 666 author:steve -> 匹配 666 并且作者名称中含有“steve”内容的帖子</small>
+      </div>
+    </div>
+
+    <!-- <form class="form-horizontal" onsubmit="return false;">
+      <input type="text" class="form-control" id="search-box" placeholder="需要搜索的标题">
+    </form> -->
+
+    {{#each items}}
+      {{> articleItem}}
+    {{else}}
+      {{#if searchReady}}
+        <p>然而可惜可能并没有搜到什么鬼╮(╯_╰)╭</p>
+      {{/if}}
+    {{/each}}
+
+    {{#unless searchReady}}
+      <!-- 模板级订阅: 评论 -->
+      <div style="position: fixed; top: 50%; left: 50%;">
+        {{> spinner}}
+      </div>
+    {{/unless}}
+  </div>
+</template>

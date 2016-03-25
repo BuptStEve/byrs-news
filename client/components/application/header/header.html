@@ -13,10 +13,10 @@
 
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-            <li class="{{#if activeTopTen}}active{{/if}}">
-              <a href="/">十大</a>
-            </li>
-          {{#if activeFixed}}
+          <li class="{{#if activeTopTen}}active{{/if}}">
+            <a href="/">十大</a>
+          </li>
+          {{#if activeUpDown}}
             <li class="{{#if activeOrderUp}}active{{/if}}">
               <a href="{{pathFor '/articles/:_id/up' _id=articleId}}">升序</a>
             </li>
@@ -25,9 +25,10 @@
             </li>
           {{/if}}
         </ul>
-        <!-- <form class="navbar-form navbar-right" role="search">
-            <input type="text" class="form-control" id="searchInput" placeholder="搜索" value="{{searchString}}">
-        </form> -->
+
+        <form class="navbar-form navbar-right" role="search">
+            <input type="text" class="form-control" id="searchInput" placeholder="搜索一下吧～=￣ω￣=～" value="{{searchString}}">
+        </form>
       </div>
     </div>
   </nav>
